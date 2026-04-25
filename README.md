@@ -1,174 +1,220 @@
-# RUL Prediction with Metaheuristic Optimization
+# 🔧 RUL Prediction System - Predictive Maintenance with AI
 
-End-to-end predictive maintenance project for turbofan engines using stacked-LSTM with sequential metaheuristic hyperparameter optimization, Type-2 Fuzzy integration, and industrial-grade data pipelines.
+[![Python](https://img.shields.io/badge/Python-3.12+-blue?style=flat&logo=python)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red?style=flat&logo=pytorch)](https://pytorch.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Streamlit](https img.shields.io/badge/Streamlit-1.28+-red?style=flat&logo=streamlit)](https://streamlit.io/)
 
-## Overview
+> **Remaining Useful Life (RUL) Prediction System** for turbofan engines using Deep Learning + Metaheuristic Optimization + Fuzzy Logic
 
-This project implements a **Remaining Useful Life (RUL)** prediction system for turbofan engines using:
+---
 
-- **Stacked-LSTM** model (inspired by Yilma et al., 2026)
-- **Sequential Metaheuristic Optimization**: TLBO → PSO for hyperparameter tuning
-- **Type-2 Fuzzy Integration**: Post-processing inspired by Melin et al. (2024)
-- **PySpark Lakehouse**: Industrial data pipeline simulation
-- **FastAPI + Streamlit**: Production-ready API and dashboard
-- **LLM Assistant**: Natural language explanations for RUL predictions
+## 🎯 Project Overview
 
-## Architecture
+This end-to-end predictive maintenance system predicts when an engine will fail, enabling proactive maintenance scheduling and reducing unplanned downtime.
+
+### Key Features
+
+- 🤖 **Deep Learning**: Stacked-LSTM neural network for time series prediction
+- 🧬 **Metaheuristic Optimization**: TLBO + PSO sequential algorithm for hyperparameter tuning
+- 🧠 **Fuzzy Logic**: Type-2 Fuzzy system for risk classification
+- ⚡ **Production Ready**: FastAPI REST API + Streamlit Dashboard
+- 📊 **Industrial Pipeline**: PySpark lakehouse simulation (Databricks-ready)
+
+---
+
+## 📈 Results
+
+| Metric | Value |
+|--------|-------|
+| **RMSE** | ~45 cycles |
+| **MAE** | ~39 cycles |
+| **API Response** | <100ms |
+| **Model Size** | ~270 KB |
+
+---
+
+## 🏗️ Architecture
 
 ```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  Data Ingestion │ ──▶ │  Feature Pipeline │ ──▶ │  Model Training │
-│  (PySpark)      │     │  (Windows/Norm)   │     │  (LSTM+TLBO+PSO)│
-└─────────────────┘     └──────────────────┘     └────────┬────────┘
-                                                          │
-┌─────────────────┐     ┌──────────────────┐             │
-│  Dashboard      │ ◀── │  Fuzzy Inference │ ◀───────────┘
-│  (Streamlit)    │     │  (Type-2)        │
-└─────────────────┘     └──────────────────┘
+┌──────────────────────────────────────────────────────────────────────────┐
+│                           RUL PREDICTION SYSTEM                         │
+├──────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐                  │
+│  │   NASA      │───▶│  Feature    │───▶│   LSTM      │                  │
+│  │  C-MAPSS    │    │ Engineering │    │   Model     │                  │
+│  └─────────────┘    └─────────────┘    └──────┬──────┘                  │
+│                                                │                         │
+│                           ┌─────────────────────┼──────────────────────┐ │
+│                           │ Metaheuristic       │ Fuzzy Inference     │ │
+│                           │ Optimization        │ Type-2              │ │
+│                           │ (TLBO → PSO)        │                     │ │
+│                           └─────────────────────┼──────────────────────┘ │
+│                                                 │                        │
+│  ┌─────────────┐    ┌─────────────┐            │                        │
+│  │  Streamlit  │◀───│   FastAPI   │◀───────────┘                        │
+│  │  Dashboard  │    │    REST     │                                     │
+│  └─────────────┘    └─────────────┘                                     │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Methodology
+---
 
-Based on:
-- **Yilma et al. (2026)**: "Remaining useful life prediction using sequential metaheuristic optimization of stacked-LSTM hyperparameters" - Chemical Engineering Research and Design
-- **Melin et al. (2024)**: "A New Hybrid Approach for Clustering, Classification, and Prediction Combining General Type-2 Fuzzy Systems and Neural Networks" - Axioms
+## 🛠️ Tech Stack
 
-### Key Innovations
-1. **Sequential TLBO → PSO** optimization for hyperparameter tuning
-2. **Type-2 Fuzzy** integration for risk classification
-3. **Industrial pipeline** design ready for Databricks migration
+| Category | Technology |
+|----------|------------|
+| **Deep Learning** | PyTorch 2.0+ |
+| **Metaheuristics** | Custom TLBO/PSO implementations |
+| **Fuzzy Logic** | scikit-fuzzy |
+| **Data Processing** | PySpark, pandas, numpy |
+| **API** | FastAPI, uvicorn |
+| **Dashboard** | Streamlit, Plotly |
+| **LLM** | LangChain + OpenAI |
+| **Testing** | pytest |
 
-## Tech Stack
+---
 
-| Layer | Technology |
-|-------|------------|
-| Deep Learning | PyTorch |
-| Metaheuristics | Custom TLBO/PSO implementations |
-| Fuzzy Logic | scikit-fuzzy |
-| Data Processing | PySpark (simulated lakehouse) |
-| API | FastAPI |
-| Dashboard | Streamlit |
-| LLM Integration | LangChain + OpenAI (configurable) |
-| Testing | pytest |
+## 🚀 Quick Start
 
-## Quick Start
-
-### 1. Setup
+### Installation
 
 ```bash
-# Clone and enter directory
+# Clone the repository
+git clone https://github.com/Aaron-MorLea/rul-prediction-metaheuristic.git
 cd rul-prediction-metaheuristic
 
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+venv\Scripts\activate  # Windows
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Download Data
+### Run the Project
 
 ```bash
-# Download NASA C-MAPSS dataset
-# https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/
-# Place in data/raw/
-```
+# Start the API (port 8002)
+uvicorn app.api:app --port 8002
 
-### 3. Run Pipeline
-
-```bash
-# Feature engineering
-python pipelines/feature_engineering.py
-
-# Train model with metaheuristic optimization
-python pipelines/training_pipeline.py
-
-# Start API
-uvicorn app.api:app --reload
-
-# Start dashboard
+# Start the Dashboard (port 8501)
 streamlit run app/dashboard.py
 ```
 
-## Project Structure
+### Use the API
+
+```python
+import requests
+import numpy as np
+
+BASE_URL = "http://127.0.0.1:8002"
+
+# 30 timesteps x 59 features
+sensor_data = np.random.randn(30, 59).tolist()
+
+payload = {
+    "unit_number": 1,
+    "sensor_data": sensor_data,
+    "sequence_length": 30
+}
+
+response = requests.post(f"{BASE_URL}/predict_rul", json=payload)
+print(response.json())
+```
+
+**Example Response:**
+```json
+{
+  "unit_number": 1,
+  "predicted_rul": 83.06,
+  "risk_level": "MEDIUM",
+  "maintenance_action": "PLAN_NEXT",
+  "recommendation": "Plan maintenance for next scheduled window",
+  "confidence": 0.8
+}
+```
+
+---
+
+## 📂 Project Structure
 
 ```
 rul-prediction-metaheuristic/
-├── data/
-│   ├── raw/                  # C-MAPSS original (NASA)
-│   ├── processed/            # Features, ventanas, splits
-│   └── external/             # Simulación de datos de planta
-├── models/
-│   ├── lstm_model.py         # Stacked-LSTM
-│   ├── tlbo_optimizer.py     # TLBO
-│   ├── pso_optimizer.py      # PSO
-│   ├── sequential_search.py  # Sequential optimization
-│   └── fuzzy_integration.py  # Type-2 Fuzzy
-├── pipelines/
-│   ├── feature_engineering.py
-│   ├── training_pipeline.py
-│   └── scoring_pipeline.py
-├── lakehouse_sim/
-│   ├── ingest_batch_spark.py
-│   └── delta_tables_demo.md
 ├── app/
-│   ├── api.py                # FastAPI
-│   ├── dashboard.py          # Streamlit
-│   └── llm_assistant.py      # LLM-powered assistant
-├── notebooks/
-│   ├── 00_eda_cmapss.ipynb
-│   ├── 01_baseline_lstm.ipynb
-│   ├── 02_metaheuristic_tuning.ipynb
-│   └── 03_fuzzy_integration_and_results.ipynb
+│   ├── api.py              # FastAPI REST API
+│   ├── dashboard.py        # Streamlit Dashboard
+│   └── llm_assistant.py    # LLM-powered assistant
+├── models/
+│   ├── lstm_model.py       # Stacked-LSTM implementation
+│   ├── tlbo_optimizer.py   # Teaching-Learning Based Optimization
+│   ├── pso_optimizer.py    # Particle Swarm Optimization
+│   ├── sequential_search.py # Sequential metaheuristic optimization
+│   └── fuzzy_integration.py # Type-2 Fuzzy risk classification
+├── pipelines/
+│   ├── feature_engineering.py # Data preprocessing
+│   └── training_pipeline.py   # Model training orchestration
+├── lakehouse_sim/
+│   └── ingest_batch_spark.py  # PySpark pipeline simulation
+├── data/
+│   └── raw/                 # NASA C-MAPSS dataset
+├── docs/
+│   └── proyecto_rul_paper.pdf # Full technical documentation
 ├── tests/
-│   ├── test_models.py
-│   ├── test_pipelines.py
-│   └── test_app.py
-└── docs/
-    ├── architecture.md
-    └── databricks_mapping.md
+│   └── test_models.py       # Unit tests
+└── README.md
 ```
 
-## API Endpoints
+---
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/predict_rul` | POST | Predict RUL for engine unit |
-| `/predict_batch` | POST | Batch prediction |
-| `/health` | GET | Health check |
-| `/metrics` | GET | Model metrics |
-| `/explanation` | POST | LLM-powered explanation |
+## 📚 Academic Foundation
 
-## Results
+This project is based on cutting-edge research:
 
-Based on experiments with C-MAPSS dataset:
+1. **Yilma et al. (2026)**: "Remaining useful life prediction using sequential metaheuristic optimization of stacked-LSTM hyperparameters" - *Chemical Engineering Research and Design*
 
-- **Binary Classification Accuracy**: ~98.9%
-- **Multi-class Precision**: Up to 100%
-- **RMSE (Regression)**: ~12-15 cycles
+2. **Melin et al. (2024)**: "A New Hybrid Approach for Clustering, Classification, and Prediction Combining General Type-2 Fuzzy Systems and Neural Networks" - *Axioms*
 
-See `notebooks/` for detailed experiments.
+---
 
-## Databricks Migration
+## 💼 Skills Demonstrated
 
-This project is designed to run locally but can be migrated to Databricks:
+This project showcases expertise in:
 
-1. **Data Lake**: Replace `data/raw/` with ADLS/S3 paths
-2. **Jobs**: Convert `pipelines/` to Databricks jobs
-3. **MLflow**: Add model tracking (future work)
-4. **Delta Tables**: Already simulated in `lakehouse_sim/`
+- ✅ **Python** (advanced)
+- ✅ **Machine Learning / Deep Learning**
+- ✅ **Time Series Forecasting**
+- ✅ **Metaheuristic Optimization**
+- ✅ **Fuzzy Logic Systems**
+- ✅ **REST API Development**
+- ✅ **Data Engineering** (PySpark)
+- ✅ **Cloud-Ready Architecture** (Databricks)
+- ✅ **Git / GitHub**
+- ✅ **Technical Writing**
 
-See `docs/databricks_mapping.md` for detailed migration guide.
+---
 
-## License
+## 📄 Documentation
 
-MIT License
+- **Technical Paper**: `docs/proyecto_rul_paper.pdf` - Complete academic documentation
+- **API Docs**: Visit `http://localhost:8002/docs` when running
 
-## References
+---
 
-- Yilma, A. A., Yang, C. L., & Woldegiorgis, B. H. (2026). Remaining useful life prediction using sequential metaheuristic optimization of stacked-LSTM hyperparameters. *Chemical Engineering Research and Design*, 228, 323-335.
+## 🔗 Links
 
-- Ramírez, M., Melin, P., & Castillo, O. (2024). A New Hybrid Approach for Clustering, Classification, and Prediction Combining General Type-2 Fuzzy Systems and Neural Networks. *Axioms*, 13(6), 368.
+- **GitHub**: https://github.com/Aaron-MorLea/rul-prediction-metaheuristic
+- **NASA C-MAPSS Dataset**: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/
 
-- Saxena, A., Goebel, K., Simon, D., & Eklund, N. (2008). Damage propagation modeling for aircraft engine run-to-failure simulation. *Annual conference of the prognostics and health management society*.
+---
+
+## 📝 License
+
+MIT License - Feel free to use this project for learning and professional purposes.
+
+---
+
+**Author**: Ing. Carlos Aaron Morales Leal  
+**Project Date**: April 2026
