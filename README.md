@@ -9,21 +9,21 @@
 
 ---
 
-## 🎯 Project Overview
+##  Project Overview
 
 This end-to-end predictive maintenance system predicts when an engine will fail, enabling proactive maintenance scheduling and reducing unplanned downtime.
 
 ### Key Features
 
-- 🤖 **Deep Learning**: Stacked-LSTM neural network for time series prediction
-- 🧬 **Metaheuristic Optimization**: TLBO + PSO sequential algorithm for hyperparameter tuning
-- 🧠 **Fuzzy Logic**: Type-2 Fuzzy system for risk classification
-- ⚡ **Production Ready**: FastAPI REST API + Streamlit Dashboard
-- 📊 **Industrial Pipeline**: PySpark lakehouse simulation (Databricks-ready)
+-  **Deep Learning**: Stacked-LSTM neural network for time series prediction
+-  **Metaheuristic Optimization**: TLBO + PSO sequential algorithm for hyperparameter tuning
+-  **Fuzzy Logic**: Type-2 Fuzzy system for risk classification
+-  **Production Ready**: FastAPI REST API + Streamlit Dashboard
+-  **Industrial Pipeline**: PySpark lakehouse simulation (Databricks-ready)
 
 ---
 
-## 📈 Results
+##  Results
 
 | Metric | Value |
 |--------|-------|
@@ -34,7 +34,7 @@ This end-to-end predictive maintenance system predicts when an engine will fail,
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -62,7 +62,7 @@ This end-to-end predictive maintenance system predicts when an engine will fail,
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Category | Technology |
 |----------|------------|
@@ -77,7 +77,7 @@ This end-to-end predictive maintenance system predicts when an engine will fail,
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -139,7 +139,7 @@ print(response.json())
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 rul-prediction-metaheuristic/
@@ -169,7 +169,7 @@ rul-prediction-metaheuristic/
 
 ---
 
-## 📚 Academic Foundation
+## Academic Foundation
 
 This project is based on cutting-edge research:
 
@@ -179,26 +179,26 @@ This project is based on cutting-edge research:
 
 ---
 
-## 💼 Skills Demonstrated
+##  Skills Demonstrated
 
 This project showcases expertise in:
 
-- ✅ **Python** (advanced)
-- ✅ **Machine Learning / Deep Learning**
-- ✅ **Time Series Forecasting**
-- ✅ **Metaheuristic Optimization**
-- ✅ **Fuzzy Logic Systems**
-- ✅ **REST API Development**
-- ✅ **Data Engineering** (PySpark)
-- ✅ **Cloud-Ready Architecture** (Databricks)
-- ✅ **Git / GitHub**
-- ✅ **Technical Writing**
+-  **Python** 
+-  **Machine Learning / Deep Learning**
+-  **Time Series Forecasting**
+-  **Metaheuristic Optimization**
+-  **Fuzzy Logic Systems**
+-  **REST API Development**
+-  **Data Engineering** (PySpark)
+-  **Cloud-Ready Architecture** (Databricks)
+-  **Git / GitHub**
+-  **Technical Writing**
 
 ---
 
-## 📄 Documentation
+##  Documentation
 
-- **Technical Paper**: `docs/proyecto_rul_paper.pdf` - Complete academic documentation
+- **Technical Paper**: `docs/proyecto_rul_paper.md` - Complete academic documentation
 - **API Docs**: Visit `http://localhost:8002/docs` when running
 
 ---
@@ -215,6 +215,3 @@ This project showcases expertise in:
 MIT License - Feel free to use this project for learning and professional purposes.
 
 ---
-
-**Author**: Ing. Carlos Aaron Morales Leal  
-**Project Date**: April 2026
