@@ -467,6 +467,4 @@ pytest>=7.4.0
 
 ---
 
-*Documento generado automáticamente para el proyecto RUL Prediction Metaheuristic*
-*Fecha: Abril 2026*
-*Autor: Ing. Carlos Aaron Morales Leal*
+*Documento generado para el proyecto RUL Prediction Metaheuristic*
